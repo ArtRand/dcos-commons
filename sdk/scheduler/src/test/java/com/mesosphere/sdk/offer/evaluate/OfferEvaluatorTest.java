@@ -271,10 +271,11 @@ public class OfferEvaluatorTest extends OfferEvaluatorTestBase {
 
         DiscoveryInfo discoveryInfo = taskInfo.getDiscovery();
         Assert.assertEquals(discoveryInfo.getName(), taskInfo.getName());
-        Assert.assertEquals(discoveryInfo.getVisibility(), DiscoveryInfo.Visibility.EXTERNAL);
+        Assert.assertEquals(discoveryInfo.getVisibility(), DiscoveryInfo.Visibility.CLUSTER);
 
         Port discoveryPort = discoveryInfo.getPorts().getPorts(0);
         Assert.assertEquals(discoveryPort.getProtocol(), "tcp");
+        Assert.assertEquals(discoveryPort.getVisibility(), DiscoveryInfo.Visibility.EXTERNAL);
         Assert.assertEquals(discoveryPort.getNumber(), 10000);
         Label vipLabel = discoveryPort.getLabels().getLabels(0);
         Assert.assertTrue(vipLabel.getKey().startsWith("VIP_"));
@@ -306,10 +307,11 @@ public class OfferEvaluatorTest extends OfferEvaluatorTestBase {
 
         DiscoveryInfo discoveryInfo = taskInfo.getDiscovery();
         Assert.assertEquals(discoveryInfo.getName(), taskInfo.getName());
-        Assert.assertEquals(discoveryInfo.getVisibility(), DiscoveryInfo.Visibility.EXTERNAL);
+        Assert.assertEquals(discoveryInfo.getVisibility(), DiscoveryInfo.Visibility.CLUSTER);
 
         Port discoveryPort = discoveryInfo.getPorts().getPorts(0);
         Assert.assertEquals(discoveryPort.getProtocol(), "tcp");
+        Assert.assertEquals(discoveryPort.getVisibility(), DiscoveryInfo.Visibility.EXTERNAL);
         Assert.assertEquals(discoveryPort.getNumber(), 10000);
         Label vipLabel = discoveryPort.getLabels().getLabels(0);
         Assert.assertTrue(vipLabel.getKey().startsWith("VIP_"));
